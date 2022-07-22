@@ -1,0 +1,73 @@
+Stage 2/4: Add & config
+
+Description
+In this stage, your program should allow a user to set their name and add the files they want to track. Store a username in config.txt.
+
+Index.txt stores the files that were added to the index. Don't forget to store all the files of the version control system in the vcs directory. You should create this directory programmatically. It may look something like this:
+
+.
+├── vcs
+│   ├── config.txt
+│   └── index.txt
+├── tracked_file.txt
+└── untracked_file.txt
+Objectives
+You need to work on the following commands:
+
+config should allow the user to set their own name or output an already existing name. If a user wants to set a new name, the program must overwrite the old one.
+add should allow the user to set the name of a file that they want to track or output the names of tracked files. If the file does not exist, the program should inform a user that the file does not exist.
+Do not create tracked_file.txt and untracked_file.txt. This is an example of the files that a user of your version control system will work with.
+Examples
+The greater-than symbol followed by a space (> ) represents the user input. Note that it's not part of the input.
+
+Example 1: the config argument
+
+Please, tell me who you are.
+Example 2: the config John argument
+
+The username is John.
+Example 3: the config argument
+
+The username is John.
+Example 4: the config Max argument
+
+The username is Max.
+Example 5: the add argument.
+
+Add a file to the index.
+Example 6: the add file.txt arguments
+
+The file 'file.txt' is tracked.
+Example 7: the add argument
+
+Tracked files:
+file.txt
+Example 8: the add new_file.txt argument
+
+The file 'new_file.txt' is tracked.
+Example 9: the add argument
+
+Tracked files:
+file.txt
+new_file.txt
+Example 10: the add not_exists_file.txt argument
+
+Can't find 'not_exists_file.txt'.
+ Report a typo
+HINT by 
+avatar
+ Chuckepsina
+I dont know what i can add to the hint, because solutions is different
+I can only advice u to check these Topics again, i had read it twice when completed this task
+
+Theory: Files and Directories: https://hyperskill.org/learn/step/15171
+Theory: Reading files: https://hyperskill.org/learn/step/6351
+Theory: Writing files: https://hyperskill.org/learn/step/9710
+Null safety: https://hyperskill.org/learn/step/7619
+Theory: Map: https://hyperskill.org/learn/step/12659 (I used it to print (These are SVCS commands:))
+
+to read files above VCS:
+if (!File(b).exists()) {
+println("Can't find '$b'.")
+}
+b is file that we are search in all direction
