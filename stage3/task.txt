@@ -1,0 +1,93 @@
+Stage 3/4: Log & commit
+
+Description
+In this stage, you should implement two commands. Commit will allow a user to save file changes; log will allow viewing the commit history.
+
+Git may seem quite complicated. If you want to learn more, watch the video explanation by GitLab.
+
+The purpose of this project is to work with files. Store different file versions in the index according to the commits and make sure that each commit has a unique ID. ID should allow you to find a specific file version that matches this commit. You need to think about the concept of a commit ID.
+
+You can store commits inside vsc/commits. Each commit will be saved to a separate directory. These directories will include a commit's ID and additional information that you can store in vsc/log.txt.
+
+You will also need to find out whether a file has been changed since the last commit. For that, you need to calculate the hash of the current file and the hash of the last commit. If these values are different, then the file has been changed. Use Java Cryptography Architecture (JCA). JCA includes solutions that are based on various cryptographic algorithms such as SHA1, SHA256, and others. Hash functions are optional, you can use a different solution.
+
+Objectives
+Implement the following commands:
+
+commit must be passed to the program along with a message (see examples). Save all changes. Each commit must be assigned a unique id. if there were no changes since the last commit, do not create a new commit. You don't need to optimize the storage of changes, just copy all the staged files to the commit folder every time.
+log should show all the commits in reverse order.
+Do not create file1.txt, file2.txt and untracked_file.txt. This is an example of the files that a user of your version control system will work with.
+Examples
+The greater-than symbol followed by a space (> ) represents the user input. Note that it's not part of the input.
+
+Example 1: the log argument
+
+No commits yet.
+This is the directory tree. Don't output it.
+
+.
+├── vcs
+│   ├── commits
+│   ├── config.txt
+│   ├── index.txt
+│   └── log.txt
+├── file1.txt
+├── file2.txt
+└── untracked_file.txt
+Example 2: the commit "Added several lines of code to the file1.txt" argument
+
+Changes are committed.
+This is the directory tree. Don't output it.
+
+.
+├── vcs
+│   ├── commits
+│   │   └── 0b4f05fcd3e1dcc47f58fed4bb189196f99da89a
+│   │       ├── file1.txt
+│   │       └── file2.txt
+│   ├── config.txt
+│   ├── index.txt
+│   └── log.txt
+├── file1.txt
+├── file2.txt
+└── untracked_file.txt
+Example 3: the log argument
+
+commit 0b4f05fcd3e1dcc47f58fed4bb189196f99da89a
+Author: John
+Added several lines of code to the file1.txt
+Example 4: the commit "Changed several lines of code in the file2.txt" argument
+
+Changes are committed.
+Example 5: the log argument
+
+commit 2853da19f31cfc086cd5c40915253cb28d5eb01c
+Author: John
+Changed several lines of code in the file2.txt
+
+commit 0b4f05fcd3e1dcc47f58fed4bb189196f99da89a
+Author: John
+Added several lines of code to the file1.txt
+This is the directory tree. Don't output it.
+
+.
+├── vcs
+│   ├── commits
+│   │   ├── 2853da19f31cfc086cd5c40915253cb28d5eb01c
+│   │   │   ├── file1.txt
+│   │   │   └── file2.txt
+│   │   └── 0b4f05fcd3e1dcc47f58fed4bb189196f99da89a
+│   │       ├── file1.txt
+│   │       └── file2.txt
+│   ├── config.txt
+│   ├── index.txt
+│   └── log.txt
+├── file1.txt
+├── file2.txt
+└── untracked_file.txt
+Example 6: the commit "Files were not changed" argument
+
+Nothing to commit.
+Example 7: the commit argument
+
+Message was not passed.
